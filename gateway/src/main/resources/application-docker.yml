@@ -1,0 +1,9 @@
+spring:
+  config:
+    import: optional:configserver:http://configUser:configPassword@config:8081
+eureka:
+  client:
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://discUser:discPassword@discovery:8761/eureka/
+

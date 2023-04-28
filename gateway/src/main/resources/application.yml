@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: gateway
+  config:
+    import: optional:configserver:http://configUser:configPassword@localhost:8081
+  main:
+    web-application-type: reactive
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: user-service
+#          uri: lb://user-service
+#          predicates:
+#            - Path=/user-products/**
+#          filters:
+#            - StripPrefix=1
+  security:
+    user:
+      name: apiUser
+      password: apiPassword
+#  session:
+#    redis:
+#      flush-mode: immediate
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - mappings
+          - env
+          - health
+          - info
+
